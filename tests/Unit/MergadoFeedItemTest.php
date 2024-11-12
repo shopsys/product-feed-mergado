@@ -147,10 +147,10 @@ class MergadoFeedItemTest extends TestCase
         $this->pricingGroupSettingFacadeMock = $this->createMock(PricingGroupSettingFacade::class);
         $this->loggerMock = $this->createMock(LoggerInterface::class);
         $this->settingMock = $this->createMock(Setting::class);
-        $this->settingMock->method('getForDomain')->with(Setting::FEED_DELIVERY_DAYS_FOR_OUT_OF_STOCK_PRODUCTS, Domain::FIRST_DOMAIN_ID)->willReturn(self::MOCKED_SETTING_FEED_DELIVERY_DAYS_FOR_OUT_OF_STOCK_PRODUCTS);
 
         $this->productAvailabilityFacadeMock = $this->createMock(ProductAvailabilityFacade::class);
         $this->productAvailabilityFacadeMock->method('isProductAvailableOnDomainCached')->willReturn($isProductAvailableOnStock);
+        $this->productAvailabilityFacadeMock->method('getProductAvailabilityDaysForFeedsByDomainId')->willReturn($isProductAvailableOnStock ? 0 : self::MOCKED_SETTING_FEED_DELIVERY_DAYS_FOR_OUT_OF_STOCK_PRODUCTS);
 
         $this->mergadoFeedItemFactory = new MergadoFeedItemFactory(
             $this->productUrlsBatchLoaderMock,

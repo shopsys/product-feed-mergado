@@ -72,7 +72,7 @@ class MergadoFeedItemFactory
             $this->productUrlsBatchLoader->getProductUrl($product, $domainConfig),
             $this->categoryFacade->getCategoryNamesInPathFromRootToProductMainCategoryOnDomain($product, $domainConfig),
             $this->getProductUsp($product, $domainId),
-            $this->availabilityFacade->isProductAvailableOnDomainCached($product, $domainId) ? 0 : $this->setting->getForDomain(Setting::FEED_DELIVERY_DAYS_FOR_OUT_OF_STOCK_PRODUCTS, $domainId),
+            $this->availabilityFacade->getProductAvailabilityDaysForFeedsByDomainId($product, $domainId),
             $this->productPriceCalculationForCustomerUser->calculatePriceForCustomerUserAndDomainId($product, $domainId),
             $this->getOtherProductImages($product, $domainConfig),
             $this->productParametersBatchLoader->getProductParametersByName($product, $domainConfig),
