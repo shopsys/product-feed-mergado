@@ -1,0 +1,12 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: false
+
+    Shopsys\ProductFeed\MergadoBundle\:
+        resource: '../../*'
+
+    Shopsys\ProductFeed\MergadoBundle\MergadoFeed:
+        tags:
+            - { name: shopsys.feed, hours: 5, minutes: 0 }
