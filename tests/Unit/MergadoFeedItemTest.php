@@ -177,7 +177,7 @@ class MergadoFeedItemTest extends TestCase
         $this->defaultProduct = $this->createMock(Product::class);
         $this->defaultProduct->method('getId')->willReturn(1);
         $this->defaultProduct->method('getCatnum')->willReturn('catnum');
-        $this->defaultProduct->method('getFullNames')->willReturn(['en' => 'product name']);
+        $this->defaultProduct->method('getFullName')->willReturn('product name');
         $this->defaultProduct->method('getDescription')->willReturn('description');
         $this->defaultProduct->method('getShortDescriptionUsp1')->willReturn('short description usp 1');
 
